@@ -6,6 +6,7 @@ import { Day } from '../models/Day';
 @Injectable({
   providedIn: 'root'
 })
+//מיועד לקריאות http בלבד
 export class ApiService {
 private readonly url="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=IBM&apikey=demo"
 allDays:Day[]
