@@ -12,15 +12,14 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./price-list.component.scss']
 })
 export class PriceListComponent implements OnInit {
- //allDays$:Observable<any>;
- //allDays;
+ 
  allDays:Day[]=[]
  maxBuy;
  maxSale;
  
 constructor(private api:ApiService,private store:StoreService) { }
 
-   init(){
+   init(){//פונקציית אתחול
     this.store.getAllPrice()
     
     this.allDays=this.store.allDays
@@ -39,20 +38,18 @@ constructor(private api:ApiService,private store:StoreService) { }
    }
 
 
-search(ev){
-  this.allDays=this.allDays.filter(x=>x.title.getFullYear()===ev.getFullYear()
+search(ev){פונקציית חיפוש לפי תאריך
+ //יש צורך בכזה חיפוש משום ששמורה גם שעה בתאריך ובתאריכון השעה היא 00:00
+this.allDays=this.allDays.filter(x=>x.title.getFullYear()===ev.getFullYear()
   &&x.title.getMonth()===ev.getMonth()
   && x.title.getDate()===ev.getDate())
 }
-  ngOnInit() {
-  
-    this.init()
-   
+  ngOnInit() {  
+    this.init()   
   }
  
   
-  reset(){
-    debugger
+  reset(){//פונקציית איפוס
     this.allDays=this.store.allDays;
   }
   
