@@ -6,6 +6,7 @@ import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root'
 })
+//מיועד לשמירת הנתונים
 export class StoreService {
 allDays1:Day[]=[];
 allDays2;
